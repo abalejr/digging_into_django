@@ -18,5 +18,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name = "index"),
-    url(r'^([0-9]+)/$', views.details, name = "details")
+    url(r'^([0-9]+)/$', views.details, name = "details"),
+    url(r'^post_url/$', views.post_treasure, name="post_treasure")
 ]
