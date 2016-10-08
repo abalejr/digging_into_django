@@ -8,43 +8,34 @@
   
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
-
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-static-top text-center">
-    <a href="/">
-      <img src="{% static 'img/logo.png' %}" alt="TreasureGram" />
-    </a>
-  </nav>
-
-  <main class="container container--mw700" role="main">
   {% block content %}
-    <div class="row">
-    {% for treasure in treasures %}
-      <div class="col-md-4">
-        <a href="/{{ treasure.id }}">
-          <div class="treasure panel panel-default">
-    
-            <div class="panel-heading">
-              <h2 class="panel-title">{{ treasure.name }}</h2>
-            </div>
+  <div class="row">
+  {% for treasure in treasures %}
+    <div class="col-md-4">
+      <a href="/{{ treasure.id }}">
+        <div class="treasure panel panel-default">
+  
+          <div class="panel-heading">
+            <h2 class="panel-title">{{ treasure.name }}</h2>
+          </div>
 
-            <div class="panel-body">
-              <div class="treasure-photo">
-                <img src="{{ treasure.img_url }}" height="200" />
-              </div>
+          <div class="panel-body">
+            <div class="treasure-photo">
+              <img src="{{ treasure.img_url }}" height="200" />
             </div>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
+    </div>
     {% if forloop.counter|divisibleby:"3" %}
       </div><div class="row">
     {% endif %}
-    {% endfor %}
-    </div>
-    {% endblock %}
-  </main>
+  {% endfor %}
+  </div>
+{% endblock %}
 </body>
 
 </html>
