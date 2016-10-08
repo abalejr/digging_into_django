@@ -6,6 +6,10 @@ def index(request):
 	treasures = Treasure.objects.all()
 	return render(request, "index.html", {"treasures": treasures})
 
+def details(request, treasure_id)
+	treasure = Treasure.objects.get(id=treasure_id)
+	return render(request, "details.html", {"treasure": treasure})
+
 
 """
 treasures = [
